@@ -1,0 +1,101 @@
+{
+  "skill_name": "coding-workflow",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "The user says: 前端 zh-CN 上传按钮把“选择档案”改成“选择文件”，只改这个翻译。先看一下工作区，别覆盖我正在做的改动。 Scenario: the nearest AGENTS.md says translated UI text belongs in locale files and documents `pnpm test:translations -- upload` as the focused check. `git status` and `git diff` show an unrelated user-edited key in the same zh-CN upload locale file. The component already reads the correct key. In this workflow simulation, state your concrete edits, verification, and what you would report. Use only the supplied scenario facts. No repo edits or commands are part of the simulation.",
+      "expected_output": "A surgical one-key edit that preserves the user's nearby hunk, followed by the existing focused check and final diff. Report evidence honestly. Avoid extra workflow or artifacts.",
+      "files": [],
+      "assertions": [
+        {
+          "type": "scope",
+          "text": "Targets exactly the existing zh-CN key and preserves the unrelated edit in the same file."
+        },
+        {
+          "type": "verification",
+          "text": "Uses the documented focused translation command and compares the pre-existing and final diff."
+        },
+        {
+          "type": "process",
+          "text": "Keeps the workflow local and focused without adding files, workflow stages, or unrelated checks."
+        },
+        {
+          "type": "evidence",
+          "text": "Clearly reports that the workflow is simulated and no check actually ran."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "The user says: 偶发重试后，页面先显示已完成，又被旧响应刷回运行中，有时还会重复创建记录。帮我定位并修掉，先别提交。 Scenario: the app has separate web and API repos, an existing browser-independent frontend integration suite that can defer responses, and a backend integration suite using real PostgreSQL. Isolated QA for real API or browser is unavailable today. Current diffs contain unrelated user changes. In this workflow simulation, give a concrete implementation and verification sequence, treating the symptom report as evidence and the cause as unknown. Use only the supplied facts. No repo edits or commands are part of the simulation.",
+      "expected_output": "A discriminating reproduction for stale responses and duplicate persistence, minimal fixes only in proven owning layers, distinct frontend and PostgreSQL verification with honest coverage limits, and preservation of the user's checkout and no-commit intent.",
+      "files": [],
+      "assertions": [
+        {
+          "type": "reproduction",
+          "text": "Defines a deterministic frontend replay where completed arrives before an older running response and checks the final visible state."
+        },
+        {
+          "type": "reproduction",
+          "text": "Replays the same logical operation against PostgreSQL and observes one durable record or the contract's equivalent invariant."
+        },
+        {
+          "type": "diagnosis",
+          "text": "Distinguishes candidate causes across both repos and makes the owning-layer fix conditional on observed evidence."
+        },
+        {
+          "type": "scope",
+          "text": "Preserves unrelated edits and respects the instruction not to commit."
+        },
+        {
+          "type": "evidence",
+          "text": "Distinguishes offline or L2 evidence from real API and browser QA and makes no simulated execution claim."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "On a new npm CLI project, run $coding-workflow setup. Only grilling is missing and use a local tracker.",
+      "expected_output": "Builds the root guide from actual package scripts and fills verified values. Installs grilling only at user scope, then runs Matt local configuration.",
+      "files": [],
+      "expectations": [
+        "Discovers commands from the repo",
+        "Preserves the target repository boundary",
+        "Initializes Matt config after preparing the guide and companions"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Run $coding-workflow setup on a repo with an equivalent AGENTS.md, all skills active, and complete Matt tracking and domain configuration.",
+      "expected_output": "Reuses existing rules, local commands and dependencies. The second run has no changes.",
+      "files": [],
+      "expectations": [
+        "Existing edits are preserved",
+        "No duplicate installs or sections",
+        "Existing configured tracker is reused"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Run $coding-workflow maintain-verification after a CLI command changed. One stale recipe fails, and another recipe still reaches the real CLI but gets incorrect output.",
+      "expected_output": "Repairs and re-runs the stale recipe. Records the product regression without changing the product or silently weakening assertions.",
+      "files": [],
+      "expectations": [
+        "Distinguishes stale command from product regression",
+        "Verification edits are scoped",
+        "Reports what was actually observed"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Run $coding-workflow to-plan for an accepted small API spec. Keep the plan in the repository.",
+      "expected_output": "Creates the docs/vibe/plans dated root, stage index and task file. Links the spec, exact tests, and expected outcomes.",
+      "files": [],
+      "expectations": [
+        "Plan tree is present even for one task",
+        "Includes traceable acceptance checks",
+        "No tracker writes or implementation edits"
+      ]
+    }
+  ]
+}

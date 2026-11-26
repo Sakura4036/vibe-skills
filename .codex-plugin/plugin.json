@@ -1,0 +1,10 @@
+{
+  "name": "vibe-skills",
+  "version": "0.1.0",
+  "description": "A coding workflow with project setup, planning, and evidence-based verification.",
+  "author": {
+    "name": "Sakura4036"
+  },
+  "repository": "https://github.com/Sakura4036/vibe-skills",
+  "skills": "./skills/"
+}
