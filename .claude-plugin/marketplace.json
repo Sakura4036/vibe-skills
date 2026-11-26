@@ -1,0 +1,14 @@
+{
+  "name": "vibe-skills",
+  "metadata": { "description": "Install the coding-workflow skill for repository setup, development, and verification." },
+  "owner": {
+    "name": "Sakura4036"
+  },
+  "plugins": [
+    {
+      "name": "vibe-skills",
+      "source": "./",
+      "description": "A coding workflow with project setup, planning, and evidence-based verification."
+    }
+  ]
+}

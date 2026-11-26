@@ -11,7 +11,7 @@ Write `docs/vibe/specs/YYYY-MM-DD-<slug>.md`. Use a short topic slug and the use
 - Relevant constraints, decisions, compatibility, and open questions.
 - Observable acceptance criteria with a verification layer for each material behavior.
 
-Distinguish decisions from assumptions. Resolve material open requirements through `grill` when the user wants that discussion. Keep the spec local and link related source, decisions, and tests. Check the final path, links, and content.
+When available, consult Matt’s `to-spec` for user stories, domain terms, and observable test boundaries. Its tracker publishing and labels belong to an explicit tracker request. Distinguish decisions from assumptions. Resolve material open requirements through `grill` when the user wants that discussion. Keep the spec local and link related source, decisions, and tests. Check the final path, links, and content.
 
 ## To plan
 
@@ -29,4 +29,4 @@ docs/vibe/plans/YYYY-MM-DD-<slug>/
 - **Stage index.** Record its goal and scope, prerequisites, ordered tasks and file ownership, predecessor and successor stages, checkpoint, and exit criteria. Link to the task files.
 - **Task.** Describe one independently verifiable slice. Name required files or interfaces, ordered steps, relevant compatibility and failure paths, exact available test commands with the expected result, and a reviewable stopping point. Record a missing test prerequisite explicitly.
 
-Verify structure, required content, links, and traceability to acceptance criteria. Keep writes local. A separate implementation request is the entry to executing the plan.
+For a migration or multi-stage rollout, apply pstack’s `principle-sequence-verifiable-units`: give each stage a runnable check before the next stage depends on it. Verify structure, required content, links, and traceability to acceptance criteria. Keep writes local. A separate implementation request is the entry to executing the plan.

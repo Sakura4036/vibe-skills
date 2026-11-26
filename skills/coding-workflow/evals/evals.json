@@ -96,6 +96,28 @@
         "Includes traceable acceptance checks",
         "No tracker writes or implementation edits"
       ]
+    },
+    {
+      "id": 7,
+      "prompt": "Run coding-workflow setup for Codex. Matt and Karpathy are configured. The active pstack plugin exposes unslop, but both verification companions are missing.",
+      "expected_output": "Install only create-verification-skill and maintain-verification-skill from cursor/plugins under pstack/skills. Reuse the namespaced unslop and complete Matt configuration. A second setup after discovery installs nothing.",
+      "files": [],
+      "expectations": [
+        "Selects both missing upstream names only",
+        "Reuses the active plugin copy",
+        "Keeps the existing tracker configuration"
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "In Claude Code, run coding-workflow create-verification for a CLI with an existing .claude/skills/verify-cli and an isolated test environment. The host requires a direct user invocation for the upstream generator.",
+      "expected_output": "Reports the fallback and extends the existing verify-cli with a real CLI recipe. Exercises the CLI, checks teardown and retained evidence, and records the covered feature in the index.",
+      "files": [],
+      "expectations": [
+        "Respects the host invocation setting",
+        "Extends the existing skill at its discovered path",
+        "Checks the user-visible result and retained evidence"
+      ]
     }
   ]
 }

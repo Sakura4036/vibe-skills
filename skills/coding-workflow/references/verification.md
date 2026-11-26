@@ -15,18 +15,14 @@ Match the tier to the guarantee and the repository's names. Prefer existing cove
 
 ## Create verification
 
-1. Inspect the repo's entry points, start and test commands, owned dependencies, fixtures, and CI. Identify how to reach and observe the app's actual user-facing surface (web, API, CLI, or public library entry point). Reuse its harness, scripts, and selectors. Ask for essential inputs the repo cannot establish.
-2. Locate an existing suitable verification skill first. Extend it where needed. Otherwise create `.agents/skills/verify-<project>/SKILL.md` in the target repo with valid name and description. Honor the repo's established skill location if different. Record:
-   - **Launch and readiness.** Exact command and directory, required isolated resources, migrations or seeds where applicable, and a ready check for the actual use case.
-   - **Doctor.** A read-only check of the intended build, instance, and required dependencies before driving it.
-   - **Drive and evidence.** Reusable commands for the normal user entry point, expected states, evidence path, and any independent observable side effects. Index key feature recipes when more than one needs documentation.
-   - **Cleanup.** Remove only processes and data owned by the run. Keep evidence and exclude credentials or user data from published artifacts.
-3. Run a representative smoke through the real entry point when an isolated environment is available and authorized. Check expected outcome and cleanup. Record unmet prerequisites and which checks remain unverified when startup or access is blocked. Add a helper only if existing commands cannot express a repeated task.
+Use pstack's [create-verification-skill](https://github.com/cursor/plugins/tree/main/pstack/skills/create-verification-skill) for the launch, doctor, drive, evidence, and cleanup recipes. Use the feature-map example shipped with that skill.
+
+- Extend the relevant existing verification skill first. For a new one use the project's established skill root, otherwise `.agents/skills/verify-<project>/` for Codex or `.claude/skills/verify-<project>/` for Claude Code. Write a valid `SKILL.md` with a name and description, then confirm the active host can discover it.
+- If the upstream skill cannot run, derive those recipes from the project's actual entry points and existing harness. Link each documented flow to its recipe from `features/README.md` or an equivalent index.
+- Exercise a representative user flow in an authorized isolated environment. Check the observable outcome, tear down only resources this run created, then confirm the evidence still exists. Exclude credentials and user data from published artifacts. Mark unexecuted recipes as drafts and name any missing prerequisite.
 
 ## Maintain verification
 
-Use the relevant diff or changed feature list to scope maintenance. Read the current source, existing recipe, test runner, and environment configuration. Recheck setup commands, selectors, data, assertions, and evidence only where they can be affected. Keep unrelated recipes stable.
+Use pstack's [maintain-verification-skill](https://github.com/cursor/plugins/tree/main/pstack/skills/maintain-verification-skill) for a full audit. Check the index against the recipes and drive every mapped feature. For a diff or named feature, use its maintenance checks on the affected recipes only. Report the checked scope and any blocked coverage. If the project has no verification skill, point to `create-verification`.
 
-Drive affected recipes through the real entry point when possible. Distinguish a stale recipe, a harness or environment failure, and a genuine product regression. Update the verification skill and helpers it owns for proven documentation or harness drift. Report product regressions for the implementation scope to address. Rerun updated recipes, preserve evidence, and verify teardown. Report the result and any unavailable coverage.
-
-Inspired by pstack's [create-verification-skill](https://github.com/cursor/plugins/blob/main/pstack/skills/create-verification-skill/SKILL.md) and [maintain-verification-skill](https://github.com/cursor/plugins/blob/main/pstack/skills/maintain-verification-skill/SKILL.md).
+If the upstream skill cannot run, compare the in-scope recipes with current source and exercise them through the user entry point. Fix proven drift in the verification skill or its helpers, then rerun the corrected recipes. Report a product regression with the observed result and retain its assertion. Verify teardown and evidence after the last drive. Keep corrections local unless the user requested publication.
